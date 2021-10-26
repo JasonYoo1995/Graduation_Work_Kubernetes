@@ -1,4 +1,4 @@
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: label-service-hpa
@@ -9,4 +9,24 @@ spec:
     apiVersion: apps/v1beta2
     kind: Deployment
     name: label-server
-  targetCPUUtilizationPercentage: 70
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 10
+      policies:
+      - type: Pods
+        value: 3
+        periodSeconds: 5
+    scaleUp:
+      stabilizationWindowSeconds: 5
+      policies:
+      - type: Pods
+        value: 5
+        periodSeconds: 5
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
+    
