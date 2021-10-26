@@ -131,10 +131,11 @@ spec:
       - args:
         - --cert-dir=/tmp
         - --secure-port=443
-        - --kubelet-insecure-tls
         - --kubelet-preferred-address-types=InternalIP
-        image: k8s.gcr.io/metrics-server-amd64:v0.3.3
-        imagePullPolicy: Always
+        - --kubelet-use-node-status-port
+        - --metric-resolution=15s
+        image: k8s.gcr.io/metrics-server/metrics-server:v0.5.1
+        imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
           httpGet:
