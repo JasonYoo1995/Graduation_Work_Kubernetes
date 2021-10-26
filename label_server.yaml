@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: label-server-deployment
+  name: label-service-deployment
   labels:
-    app: label-server
+    app: label-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: label-server
+      app: label-service
   template:
     metadata:
       labels:
-        app: label-server
+        app: label-service
     spec:
       containers:
-      - name: label-server
+      - name: label-service
         image: inchrist95/label_service:4.1
         ports:
         - containerPort: 8002
