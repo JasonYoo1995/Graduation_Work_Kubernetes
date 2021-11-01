@@ -3,7 +3,7 @@ kind: HorizontalPodAutoscaler
 metadata:
   name: label-service-hpa
 spec:
-  maxReplicas: 6
+  maxReplicas: 3
   minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1
@@ -11,11 +11,11 @@ spec:
     name: label-service-deployment
   behavior:
     scaleDown:
-      stabilizationWindowSeconds: 10
+      stabilizationWindowSeconds: 300
       policies:
       - type: Pods
-        value: 3
-        periodSeconds: 5
+        value: 1
+        periodSeconds: 300
     scaleUp:
       stabilizationWindowSeconds: 5
       policies:

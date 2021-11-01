@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: label-service-deployment
+  name: model-service-deployment
   labels:
-    app: label-service
+    app: model-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: label-service
+      app: model-service
   template:
     metadata:
       labels:
-        app: label-service
+        app: model-service
     spec:
       containers:
-      - name: label-service
-        image: inchrist95/label_service:4.2
+      - name: model-service
+        image: inchrist95/model_service:4.2
         ports:
-        - containerPort: 8002
+        - containerPort: 8001
         resources:
           requests:
             cpu: "100m"
