@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: label-service
-        image: inchrist95/label_service:4.2
+        image: inchrist95/label_service:4.3
         ports:
         - containerPort: 8002
         resources:

@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-nginx
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /model-service(/|$)(.*)
+        backend:
+          serviceName: model-service-lb
+          servicePort: 8001
+      - path: /label-service(/|$)(.*)
+        backend:
+          serviceName: label-service-lb
+          servicePort: 8002

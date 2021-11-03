@@ -1,14 +1,14 @@
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: label-service-hpa
+  name: inaccurate-dataset-consumer-service-hpa
 spec:
   maxReplicas: 3
   minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: label-service-deployment
+    name: inaccurate-dataset-consumer-deployment
   behavior:
     scaleDown:
       stabilizationWindowSeconds: 10

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: model-service
-        image: inchrist95/model_service:4.2
+        image: inchrist95/model_service:4.3
         ports:
         - containerPort: 8001
         resources:
