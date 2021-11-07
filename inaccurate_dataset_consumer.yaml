@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: inaccurate-dataset-consumer
-        image: inchrist95/inaccurate_dataset_consumer_service:4.4
+        image: inchrist95/inaccurate_dataset_consumer_service:4.6
         resources:
           requests:
             cpu: "100m"

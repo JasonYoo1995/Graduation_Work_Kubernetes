@@ -16,17 +16,17 @@ spec:
     spec:
       containers:
       - name: parameter-consumer
-        image: inchrist95/parameter_consumer_service:4.4
+        image: inchrist95/parameter_consumer_service:4.6
         resources:
           requests:
             cpu: "100m"
           limits:
             cpu: "150m"
             memory: "384Mi"
-        volumeMounts:
-        - name: nfs-vol
-          mountPath: /usr/src/parameter
-      volumes:
-      - name: nfs-vol
-        persistentVolumeClaim:
-          claimName: nfs-pvc
+#        volumeMounts:
+#        - name: nfs-vol
+#          mountPath: /usr/src/parameter
+#      volumes:
+#      - name: nfs-vol
+#        persistentVolumeClaim:
+#          claimName: nfs-pvc
