@@ -1,24 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: model-service-deployment
+  name: parameter-consumer-deployment
   labels:
-    app: model-service
+    app: parameter-consumer
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: model-service
+      app: parameter-consumer
   template:
     metadata:
       labels:
-        app: model-service
+        app: parameter-consumer
     spec:
       containers:
-      - name: model-service
-        image: inchrist95/model_service:4.4
-        ports:
-        - containerPort: 8001
+      - name: parameter-consumer
+        image: 192.168.1.10:8443/parameter_consumer_service:4.7
         resources:
           requests:
             cpu: "100m"

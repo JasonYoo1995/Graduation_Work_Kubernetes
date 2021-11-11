@@ -11,11 +11,11 @@ spec:
     name: label-service-deployment
   behavior:
     scaleDown:
-      stabilizationWindowSeconds: 10
+      stabilizationWindowSeconds: 5
       policies:
       - type: Pods
-        value: 1
-        periodSeconds: 5
+        value: 2
+        periodSeconds: 1
     scaleUp:
       stabilizationWindowSeconds: 5
       policies:
