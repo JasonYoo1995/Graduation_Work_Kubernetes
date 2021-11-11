@@ -24,5 +24,6 @@ docker run -d \
   -e REGISTRY_HTTP_ADDR=0.0.0.0:443 \
   -e REGISTRY_HTTP_TLS_CERTIFICATE=/docker-in-certs/tls.crt \
   -e REGISTRY_HTTP_TLS_KEY=/docker-in-certs/tls.key \
+  -e REGISTRY_STORAGE_DELETE_ENABLED=true \
   -p 8443:443 \
   registry:2
